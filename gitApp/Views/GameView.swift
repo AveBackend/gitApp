@@ -13,15 +13,22 @@ struct GameView: View {
         VStack{
             Text("Здесь будет первый экран игры")
                 .padding()
+            
             Button {
                 GoBack.toggle()
             } label:{
                 Text("Вернуться назад")
                     .padding()
                     .cornerRadius(16)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.green]), startPoint: .top, endPoint: .bottom))
+                    .cornerRadius(16)
+                
+
             }.fullScreenCover(isPresented: $GoBack){StartView()}
-            
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all))
     }
     
 }
