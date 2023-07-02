@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct GameView: View {
+    @State var GoBack = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Здесь будет первый экран игры")
+                .padding()
+            Button {
+                GoBack.toggle()
+            } label:{
+                Text("Вернуться назад")
+                    .padding()
+                    .cornerRadius(16)
+            }.fullScreenCover(isPresented: $GoBack){StartView()}
+            
+        }
     }
+    
 }
 
 struct GameView_Previews: PreviewProvider {
